@@ -1,6 +1,6 @@
 # limaborregana.com
 
-Site institucional da **Lima Borregana**, empresa de relocation em Portugal, focada em apoiar estrangeiros e famílias no processo de mudança, integração e legalização no país.
+Site institucional da **Lima Borregana**, empresa de relocation em Portugal, focada em apoiar estrangeiros e famílias no processo de mudança, integração e legalização no país
 
 ---
 

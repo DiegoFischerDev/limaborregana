@@ -139,11 +139,24 @@ body {
     color: var(--text-primary);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 1.4s forwards;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     text-shadow: 0 2px 8px rgba(14, 9, 41, 0.3);
+}
+
+.company-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1.1rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1.6s forwards;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-style: normal;
 }
 
 .construction-title {
@@ -357,6 +370,10 @@ body {
         font-size: clamp(1.25rem, 3.5vw, 2rem);
     }
     
+    .company-subtitle {
+        font-size: clamp(0.8rem, 1.8vw, 1rem);
+    }
+    
     .features-preview {
         gap: 0.875rem;
     }
@@ -387,6 +404,11 @@ body {
     .company-name {
         font-size: clamp(1.1rem, 3vw, 1.75rem);
         margin-top: 1rem;
+    }
+    
+    .company-subtitle {
+        font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+        margin-top: 0.25rem;
     }
     
     .construction-title {
@@ -441,6 +463,12 @@ body {
         font-size: clamp(1rem, 2.5vw, 1.5rem);
         margin-top: 0.75rem;
         letter-spacing: 0.08em;
+    }
+    
+    .company-subtitle {
+        font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+        margin-top: 0.25rem;
+        letter-spacing: 0.12em;
     }
     
     .construction-title {
@@ -505,6 +533,12 @@ body {
         letter-spacing: 0.06em;
     }
     
+    .company-subtitle {
+        font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+        margin-top: 0.25rem;
+        letter-spacing: 0.1em;
+    }
+    
     .construction-title {
         margin-bottom: 1rem;
     }
@@ -554,6 +588,12 @@ body {
         font-size: clamp(0.85rem, 1.8vw, 1.1rem);
         margin-top: 0.5rem;
         letter-spacing: 0.05em;
+    }
+    
+    .company-subtitle {
+        font-size: clamp(0.6rem, 1vw, 0.7rem);
+        margin-top: 0.2rem;
+        letter-spacing: 0.08em;
     }
     
     .construction-title {
@@ -607,6 +647,10 @@ body {
     
     .company-name {
         font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    }
+    
+    .company-subtitle {
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
     }
 }
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://limaborregana.com/sitemap.xml
+

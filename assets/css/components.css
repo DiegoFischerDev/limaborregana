@@ -12,6 +12,7 @@
     cursor: pointer;
     font-size: 1rem;
     letter-spacing: 0.02em;
+    font-family: inherit;
 }
 
 .btn-primary {
@@ -23,6 +24,10 @@
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(92, 127, 184, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .btn-secondary {
@@ -45,6 +50,17 @@
 .btn-outline:hover {
     background-color: var(--text-secondary);
     color: var(--bg-primary);
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
 /* Cards */
@@ -79,13 +95,15 @@ a:hover {
 
 /* Inputs e Formulários */
 input, textarea, select {
-    background-color: var(--primary-medium);
+    background-color: var(--primary-dark-light);
     border: 2px solid var(--neutral-medium);
     border-radius: 8px;
     padding: 12px 16px;
     color: var(--text-primary);
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+    width: 100%;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -96,6 +114,11 @@ input:focus, textarea:focus, select:focus {
 
 input::placeholder, textarea::placeholder {
     color: var(--text-muted);
+}
+
+input.error, textarea.error, select.error {
+    border-color: #ff4444;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.2);
 }
 
 /* Badges e Tags */
@@ -124,5 +147,65 @@ input::placeholder, textarea::placeholder {
     margin: 2rem 0;
 }
 
-/* Adicione mais componentes aqui */
+/* Loading Spinner */
+.spinner {
+    border: 3px solid rgba(92, 127, 184, 0.3);
+    border-top: 3px solid var(--accent-blue-light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--primary-medium);
+    color: var(--text-primary);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+    border: 1px solid rgba(92, 127, 184, 0.2);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsividade para componentes */
+@media (max-width: 768px) {
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-large {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+}

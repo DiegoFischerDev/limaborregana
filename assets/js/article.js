@@ -13,8 +13,9 @@
     var baseUrl = 'https://limaborregana.com/';
     var articleUrl = baseUrl + 'article.html?' + (post.slug ? 'slug=' + encodeURIComponent(post.slug) : 'id=' + encodeURIComponent(post._id));
     var imgUrl = '';
-    if (post.mainImageUrl) imgUrl = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + 'w=1200&fit=max';
-    else if (post.mainImageRef && typeof Sanity !== 'undefined' && Sanity.imageUrl) imgUrl = Sanity.imageUrl(post.mainImageRef, { w: 1200 }) || '';
+    var imgParams = 'w=1200&fit=max&fm=webp&q=85';
+    if (post.mainImageUrl) imgUrl = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + imgParams;
+    else if (post.mainImageRef && typeof Sanity !== 'undefined' && Sanity.imageUrl) imgUrl = Sanity.imageUrl(post.mainImageRef, { w: 1200, fit: 'max', fm: 'webp', q: 85 }) || '';
     var headline = post.title || 'Artigo';
     var description = (post.excerpt || '').slice(0, 160);
 
@@ -90,12 +91,13 @@
         }
         var title = (post.title || 'Artigo').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         var imgHtml = '';
+        var articleImgParams = 'w=800&fit=max&fm=webp&q=85';
         if (post.mainImageUrl) {
-          var imgUrl = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + 'w=800&fit=max';
-          imgHtml = '<figure class="article-post-figure"><img src="' + imgUrl + '" alt="' + title + '" class="article-post-image"/></figure>';
+          var imgUrl = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + articleImgParams;
+          imgHtml = '<figure class="article-post-figure"><img src="' + imgUrl + '" alt="' + title + '" class="article-post-image" decoding="async"/></figure>';
         } else if (post.mainImageRef && Sanity.imageUrl) {
-          var refUrl = Sanity.imageUrl(post.mainImageRef, { w: 800 });
-          if (refUrl) imgHtml = '<figure class="article-post-figure"><img src="' + refUrl + '" alt="' + title + '" class="article-post-image"/></figure>';
+          var refUrl = Sanity.imageUrl(post.mainImageRef, { w: 800, fit: 'max', fm: 'webp', q: 85 });
+          if (refUrl) imgHtml = '<figure class="article-post-figure"><img src="' + refUrl + '" alt="' + title + '" class="article-post-image" decoding="async"/></figure>';
         }
         var bodyHtml = '';
         if (post.body && post.body.length && Sanity.portableTextToHtml) {

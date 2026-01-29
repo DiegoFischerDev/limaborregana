@@ -44,12 +44,25 @@ limaborregana/
 ├── sitemap.xml             # Mapa do site para SEO
 ├── assets/
 │   ├── css/                # main.css, components.css
-│   ├── js/                 # main.js, form.js, sanity.js, blog-list.js, article.js
-│   └── img/                # Logos, imagens, tamb.png (preview redes sociais)
+│   ├── js/                 # main.js, form.js, sanity.js, blog-list.js, article.js, webp-detect.js
+│   └── img/                # Logos, imagens, tamb.png (preview redes sociais); .webp gerados por npm run optimize-images
+├── scripts/
+│   └── optimize-static-images.js   # Gera versões WebP das imagens (JPG/PNG) para carregamento mais rápido
 ├── WEB3FORMS_SETUP.md      # Configuração do formulário de contacto
 ├── SANITY_SETUP.md         # Configuração do Sanity CMS
 └── README.md
 ```
+
+---
+
+## Otimização de imagens estáticas
+
+O site usa **WebP** quando o navegador suporta (menor tamanho, carregamento mais rápido). As imagens JPG/PNG em `assets/img/` podem ser convertidas para WebP localmente:
+
+1. Na pasta **limaborregana**: `npm install` (instala `sharp`)
+2. Correr: `npm run optimize-images`
+
+Isto gera ficheiros `.webp` em `assets/img/` (ex.: `hero-home.webp`, `LogoLB_Dark.webp`). O HTML e o CSS já estão preparados: logos e heroes usam `<picture>` ou a classe `.webp` no `<html>` para servir WebP quando existir. Não é obrigatório subir novos ficheiros manualmente; basta correr o script e fazer commit dos `.webp` gerados (ou ignorá-los e manter só JPG/PNG).
 
 ---
 

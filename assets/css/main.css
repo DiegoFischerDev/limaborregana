@@ -284,9 +284,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../img/hero-home.jpg');
+    /* WebP primeiro, JPG como fallback se .webp não existir */
+    background-image: url('../img/hero-home.webp'), url('../img/hero-home.jpg');
     background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: 1;
@@ -1424,6 +1424,16 @@ body {
     background-attachment: fixed;
     z-index: 1;
 }
+
+/* Imagem de fundo por página (WebP quando disponível) */
+.page-hero-vistos-europa { background-image: url('../img/hero-vistos-europa.jpg'); }
+.webp .page-hero-vistos-europa { background-image: url('../img/hero-vistos-europa.webp'); }
+.page-hero-estudantes { background-image: url('../img/hero-estudantes.jpg'); }
+.webp .page-hero-estudantes { background-image: url('../img/hero-estudantes.webp'); }
+.page-hero-equipe { background-image: url('../img/equipe.jpg'); }
+.webp .page-hero-equipe { background-image: url('../img/equipe.webp'); }
+.page-hero-investimentos { background-image: url('../img/investimentos.jpg'); }
+.webp .page-hero-investimentos { background-image: url('../img/investimentos.webp'); }
 
 .page-hero-background::before {
     content: '';

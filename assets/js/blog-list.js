@@ -12,7 +12,7 @@
     } catch (e) { return ''; }
   }
 
-  function renderCard(post, baseUrl) {
+  function renderCard(post, baseUrl, isFirst) {
     var slug = post.slug || '';
     var id = post._id || '';
     var href = baseUrl + 'noticias.html';
@@ -22,19 +22,22 @@
     var excerpt = (post.excerpt || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     var dateStr = formatDate(post.publishedAt);
     var imgSrc = 'assets/img/hero-vistos-europa.jpg';
+    var sanityParams = 'w=600&fit=max&fm=webp&q=85';
     if (post.mainImageUrl) {
-      imgSrc = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + 'w=600&fit=max';
+      imgSrc = post.mainImageUrl + (post.mainImageUrl.indexOf('?') >= 0 ? '&' : '?') + sanityParams;
     } else if (post.mainImageRef && typeof Sanity !== 'undefined' && Sanity.imageUrl) {
-      imgSrc = Sanity.imageUrl(post.mainImageRef, { w: 600 }) || imgSrc;
+      imgSrc = Sanity.imageUrl(post.mainImageRef, { w: 600, fit: 'max', fm: 'webp', q: 85 }) || imgSrc;
     }
     var imgAlt = title;
     var isFeatured = post.featured === true;
     var cardClass = 'blog-card' + (isFeatured ? ' blog-card--featured' : '');
     var starBadge = isFeatured ? '<span class="blog-card-badge" aria-hidden="true"><i class="fas fa-star"></i></span>' : '';
+    var loadingAttr = isFirst ? 'eager' : 'lazy';
+    var fetchPriority = isFirst ? ' fetchpriority="high"' : '';
     return (
       '<a href="' + href + '" class="' + cardClass + '">' +
       starBadge +
-      '<img src="' + imgSrc + '" alt="' + imgAlt + '" class="blog-card-image">' +
+      '<img src="' + imgSrc + '" alt="' + imgAlt + '" class="blog-card-image" width="600" height="200" loading="' + loadingAttr + '" decoding="async"' + fetchPriority + '>' +
       '<div class="blog-card-body">' +
       (dateStr ? '<time class="blog-card-date" datetime="' + (post.publishedAt || '') + '">' + dateStr + '</time>' : '') +
       '<h3 class="blog-card-title">' + title + '</h3>' +
@@ -69,12 +72,7 @@
     Sanity.fetchPosts(limit != null ? limit : 20)
       .then(function (posts) {
         if (posts && posts.length > 0) {
-          console.log('[blog-list] Artigos do Sanity:', posts.length);
-          console.log('[blog-list] Resposta da API (objetos recebidos):', JSON.stringify(posts, null, 2));
-          posts.forEach(function (p, i) {
-            console.log('[blog-list] Post #' + (i + 1) + ':', p.title, '| featured:', p.featured, '| keys:', Object.keys(p));
-          });
-          grid.innerHTML = posts.map(function (p) { return renderCard(p, baseUrl); }).join('');
+          grid.innerHTML = posts.map(function (p, i) { return renderCard(p, baseUrl, i === 0); }).join('');
         } else {
           console.warn('[blog-list] Sanity devolveu 0 artigos.');
           grid.innerHTML = emptyState();

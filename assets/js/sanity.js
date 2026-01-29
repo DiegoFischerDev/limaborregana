@@ -96,24 +96,25 @@
   }
 
   /**
-   * Constrói URL da imagem no CDN Sanity.
+   * Constrói URL da imagem no CDN Sanity (suporta WebP e qualidade para carregamento mais rápido).
    * @param {string} ref - mainImage.asset._ref (ex: "image-xxx-400x300-jpg")
-   * @param {object} opts - { w, h, fit } opcionais
+   * @param {object} opts - { w, h, fit, fm, q } opcionais (fm=webp, q=1-100)
    * @returns {string}
    */
   function imageUrl(ref, opts) {
     if (!ref || typeof ref !== 'string') return '';
-    // ref formato: "image-<id>-<width>x<height>-<format>"
     var part = ref.replace(/^image-/, '');
     var lastDash = part.lastIndexOf('-');
     var ext = lastDash > 0 ? part.slice(lastDash + 1).replace('jpg', 'jpeg') : 'jpg';
     var rest = lastDash > 0 ? part.slice(0, lastDash) : part;
     var base = CDN_IMG + '/' + rest + '.' + ext;
-    if (opts && (opts.w || opts.h)) {
+    if (opts) {
       var params = [];
       if (opts.w) params.push('w=' + opts.w);
       if (opts.h) params.push('h=' + opts.h);
       if (opts.fit) params.push('fit=' + opts.fit);
+      if (opts.fm) params.push('fm=' + opts.fm);
+      if (opts.q != null) params.push('q=' + opts.q);
       if (params.length) base += '?' + params.join('&');
     }
     return base;
@@ -166,8 +167,8 @@
         html.push('<' + tag + ' class="page-text">' + spanToHtml(block.children) + '</' + tag + '>');
       } else if (block._type === 'image' && block.asset) {
         var imgRef = block.asset._ref;
-        var src = imageUrl(imgRef, { w: 800 });
-        html.push('<figure class="page-figure"><img src="' + src + '" alt="" class="page-img"/></figure>');
+        var src = imageUrl(imgRef, { w: 800, fm: 'webp', q: 85 });
+        html.push('<figure class="page-figure"><img src="' + src + '" alt="" class="page-img" loading="lazy" decoding="async"/></figure>');
       }
       i++;
     }

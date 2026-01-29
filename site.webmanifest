@@ -1,0 +1,22 @@
+{
+  "name": "Lima Borregana - Consultoria Internacional",
+  "short_name": "Lima Borregana",
+  "description": "Consultoria Internacional especializada em vistos, residência, investimentos e estudos. Europa, América do Sul e América do Norte.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e0a29",
+  "theme_color": "#0e0a29",
+  "lang": "pt-PT",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

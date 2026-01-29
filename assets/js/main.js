@@ -1,5 +1,6 @@
 // Comportamento geral do site (menu, scroll, etc)
-
+// Web3Forms: obtém o Access Key em web3forms.com e coloca aqui (envia para o email que definires no painel)
+const WEB3FORMS_ACCESS_KEY = 'e69a0e03-d178-4b3c-b9a0-1b0488c0b609';
 document.addEventListener('DOMContentLoaded', function() {
     // Inicialização do site
     console.log('Lima Borregana - Site carregado');
@@ -86,28 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ============================================
-    // HEADER SCROLL EFFECT
-    // ============================================
-    const header = document.querySelector('.main-header');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.style.background = 'rgba(14, 9, 41, 0.98)';
-            header.style.boxShadow = '0 2px 10px rgba(14, 9, 41, 0.3)';
-        } else {
-            header.style.background = 'rgba(14, 9, 41, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-        
-        lastScroll = currentScroll;
-    });
-    
-    // ============================================
     // SMOOTH SCROLL
     // ============================================
+    const header = document.querySelector('.main-header');
     const links = document.querySelectorAll('a[href^="#"]');
     
     links.forEach(link => {
@@ -207,30 +189,67 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Aqui você pode adicionar a lógica de envio do formulário
-            // Por exemplo, usando fetch para enviar para um servidor
-            console.log('Formulário enviado:', {
-                name,
-                email,
-                phone,
-                subject: document.getElementById('subject').value,
-                message
-            });
+            const subjectValue = document.getElementById('subject').value;
+            const subjectLabels = {
+                imigracao: 'Imigração e Residência',
+                financas: 'Finanças & Investimentos',
+                empresa: 'Abrir Empresa',
+                estudante: 'Vistos de Estudante',
+                outro: 'Outro'
+            };
+            const subjectLabel = subjectLabels[subjectValue] || subjectValue;
             
-            // Feedback visual
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-check"></i> Enviado!';
             submitButton.disabled = true;
-            submitButton.style.background = '#25D366';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> A enviar...';
             
-            // Reset após 3 segundos
-            setTimeout(() => {
-                contactForm.reset();
+            var web3formsNotConfigured = !WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY';
+            
+            if (web3formsNotConfigured) {
+                var emailSubject = 'Contacto Lima Borregana - ' + subjectLabel;
+                var emailBody = 'Nome: ' + name + '\nEmail: ' + email + '\nTelefone: ' + phone + '\nAssunto: ' + subjectLabel + '\n\nMensagem:\n' + message;
+                window.location.href = 'mailto:diegofischer.dev@gmail.com?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-                submitButton.style.background = '';
-            }, 3000);
+                return;
+            }
+            
+            var payload = {
+                access_key: WEB3FORMS_ACCESS_KEY,
+                name: name,
+                email: email,
+                phone: phone,
+                subject: 'Contacto Lima Borregana - ' + subjectLabel,
+                message: message
+            };
+            
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+            })
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        submitButton.innerHTML = '<i class="fas fa-check"></i> Enviado!';
+                        submitButton.style.background = '#25D366';
+                        contactForm.reset();
+                        setTimeout(function() {
+                            submitButton.innerHTML = originalText;
+                            submitButton.disabled = false;
+                            submitButton.style.background = '';
+                        }, 3000);
+                    } else {
+                        throw new Error(data.message || 'Erro ao enviar');
+                    }
+                })
+                .catch(function(err) {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    alert('Não foi possível enviar a mensagem. Tente novamente ou contacte-nos por WhatsApp.');
+                    console.error('Web3Forms:', err);
+                });
         });
     }
     

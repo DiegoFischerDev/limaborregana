@@ -16,14 +16,16 @@
 }
 
 .btn-primary {
-    background: var(--gradient-accent);
-    color: var(--text-primary);
-    box-shadow: 0 4px 15px rgba(92, 127, 184, 0.3);
+    background: var(--primary-blue);
+    color: var(--text-on-dark);
+    box-shadow: 0 4px 15px rgba(14, 10, 41, 0.25);
 }
 
 .btn-primary:hover {
+    background: var(--primary-blue-hover);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(92, 127, 184, 0.4);
+    box-shadow: 0 6px 20px rgba(14, 10, 41, 0.35);
 }
 
 .btn-primary:active {
@@ -32,24 +34,24 @@
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--accent-blue-light);
-    border: 2px solid var(--accent-blue);
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
 }
 
 .btn-secondary:hover {
-    background-color: var(--accent-blue);
-    color: var(--text-primary);
+    background-color: var(--primary-blue);
+    color: var(--text-on-dark);
 }
 
 .btn-outline {
     background-color: transparent;
     color: var(--text-primary);
-    border: 2px solid var(--text-secondary);
+    border: 2px solid var(--gray-400);
 }
 
 .btn-outline:hover {
-    background-color: var(--text-secondary);
-    color: var(--bg-primary);
+    background-color: var(--gray-200);
+    color: var(--text-primary);
 }
 
 .btn-large {
@@ -65,11 +67,11 @@
 
 /* Cards */
 .card {
-    background: var(--primary-medium);
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 8px 24px rgba(14, 9, 41, 0.4);
-    border: 1px solid rgba(92, 127, 184, 0.1);
+    box-shadow: 0 4px 20px rgba(14, 10, 41, 0.08);
+    border: 1px solid var(--gray-200);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

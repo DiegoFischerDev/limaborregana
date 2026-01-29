@@ -200,34 +200,9 @@
     <!-- Seção Notícias / Artigos -->
     <section id="noticias" class="news-section">
         <div class="container">
-            <h2 class="section-title">Artigos sobre imigração em Portugal</h2>
+            <h2 class="section-title">Artigos e Notícias Lima Borregana</h2>
             <p class="section-subtitle">Informação prática sobre vistos, residência e primeiros passos</p>
-            <div class="blog-grid" style="max-width: 100%;">
-                <a href="artigo-visto-procura-trabalho.html" class="blog-card">
-                    <img src="assets/img/procura trabalho.jpg" alt="Suspensão temporária do visto de procura de trabalho em Portugal" class="blog-card-image">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">Suspensão temporária do visto de procura de trabalho</h3>
-                        <p class="blog-card-excerpt">O que mudou, quem é afetado e quais alternativas existem</p>
-                        <span class="blog-card-link">Ler artigo <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <a href="artigo-credito-jovem.html" class="blog-card">
-                    <img src="assets/img/credito jovem.jpg" alt="Crédito Jovem e Garantia do Estado para financiamento em Portugal" class="blog-card-image">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">Crédito Jovem e Garantia do Estado (financiamento 100%)</h3>
-                        <p class="blog-card-excerpt">Como funciona o apoio à habitação para jovens em Portugal</p>
-                        <span class="blog-card-link">Ler artigo <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-                <a href="artigo-visto-estudante.html" class="blog-card">
-                    <img src="assets/img/hero-estudantes.jpg" alt="Visto de estudante em Portugal - requisitos D4 e D5" class="blog-card-image">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">Visto de estudante: como funciona</h3>
-                        <p class="blog-card-excerpt">Requisitos e passos para o visto D4/D5 em Portugal</p>
-                        <span class="blog-card-link">Ler artigo <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-            </div>
+            <div id="blog-grid" class="blog-grid" style="max-width: 100%;" data-limit="3"><!-- 3 últimos artigos (Sanity) --></div>
             <p style="text-align: center; margin-top: 2rem;">
                 <a href="noticias.html" class="btn btn-primary">Ver todas as notícias</a>
             </p>
@@ -326,6 +301,8 @@
         </div>
     </footer>
 
+    <script src="assets/js/sanity.js"></script>
+    <script src="assets/js/blog-list.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/form.js"></script>
 </body>

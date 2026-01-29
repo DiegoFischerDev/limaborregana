@@ -8,6 +8,15 @@ Site institucional da **Lima Borregana**, consultoria internacional especializad
 
 - HTML5, CSS3, JavaScript (vanilla)
 - Site estático, sem dependências de build
+- **Sanity CMS** para o blog (artigos editados no Sanity Studio, exibidos dinamicamente)
+
+---
+
+## Blog (Sanity)
+
+O conteúdo do blog é gerido no **Sanity**. A listagem em Notícias e os 3 artigos na homepage vêm da API do Sanity; cada artigo abre em `article.html?slug=xxx`. Instruções completas em **`SANITY_SETUP.md`**.
+
+Resumo: criar projeto em [sanity.io](https://www.sanity.io), configurar `SANITY_PROJECT_ID` em `assets/js/sanity.js` e, na pasta `sanity-studio/`, definir o Project ID em `.env` e correr `npm run dev` para editar artigos em http://localhost:3333.
 
 ---
 
@@ -15,14 +24,15 @@ Site institucional da **Lima Borregana**, consultoria internacional especializad
 
 ```
 limaborregana/
-├── index.html              # Homepage
+├── index.html              # Homepage (secção artigos = 3 últimos do Sanity)
 ├── vistos-europa.html      # Vistos
 ├── estudantes.html         # Estudantes
 ├── investimentos.html     # Investimentos
 ├── equipe.html            # Equipe
-├── noticias.html          # Listagem de notícias
+├── noticias.html          # Listagem de notícias (artigos do Sanity)
+├── article.html           # Artigo dinâmico (?slug=xxx)
 ├── politica-privacidade.html
-├── artigo-*.html           # Artigos (6)
+├── sanity-studio/         # Sanity Studio (npm install + npm run dev)
 ├── favicon.ico             # Favicon (aba do navegador)
 ├── favicon-16x16.png
 ├── favicon-32x32.png
@@ -34,9 +44,10 @@ limaborregana/
 ├── sitemap.xml             # Mapa do site para SEO
 ├── assets/
 │   ├── css/                # main.css, components.css
-│   ├── js/                 # main.js, form.js
+│   ├── js/                 # main.js, form.js, sanity.js, blog-list.js, article.js
 │   └── img/                # Logos, imagens, tamb.png (preview redes sociais)
 ├── WEB3FORMS_SETUP.md      # Configuração do formulário de contacto
+├── SANITY_SETUP.md         # Configuração do Sanity CMS
 └── README.md
 ```
 

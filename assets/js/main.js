@@ -1,6 +1,6 @@
 // Comportamento geral do site (menu, scroll, etc)
 // Web3Forms: obtém o Access Key em web3forms.com e coloca aqui (envia para o email que definires no painel)
-const WEB3FORMS_ACCESS_KEY = 'e69a0e03-d178-4b3c-b9a0-1b0488c0b609';
+const WEB3FORMS_ACCESS_KEY = '278726e6-f13d-4679-a155-382c5194f207';
 document.addEventListener('DOMContentLoaded', function() {
     // Inicialização do site
     console.log('Lima Borregana - Site carregado');
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (web3formsNotConfigured) {
                 var emailSubject = 'Contacto Lima Borregana - ' + subjectLabel;
                 var emailBody = 'Nome: ' + name + '\nEmail: ' + email + '\nTelefone: ' + phone + '\nAssunto: ' + subjectLabel + '\n\nMensagem:\n' + message;
-                window.location.href = 'mailto:diegofischer.dev@gmail.com?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
+                window.location.href = 'mailto:info@limaborregana.com?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
                 return;

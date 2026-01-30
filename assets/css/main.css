@@ -1010,11 +1010,7 @@ body {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.2s ease;
-}
-
-.contact-detail:hover {
-    color: var(--accent-primary);
+    cursor: default;
 }
 
 .contact-detail i {

@@ -1414,9 +1414,11 @@ body {
         font-size: clamp(1.75rem, 5vw, 2rem);
     }
     
-    /* Remove background-attachment fixed em mobile para melhor performance */
+    /* Remove background-attachment fixed em mobile para melhor performance e ajuste de enquadramento */
     .hero-background {
         background-attachment: scroll;
+        background-position: center 25%;
+        background-size: cover;
     }
 }
 

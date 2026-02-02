@@ -575,7 +575,7 @@ body {
 .service-icon {
     width: 64px;
     height: 64px;
-    margin-bottom: 1.25rem;
+    margin: 0 auto 1.25rem;
     background: var(--primary-blue);
     border-radius: 12px;
     display: flex;
@@ -2653,7 +2653,7 @@ body {
         text-align: left;
     }
     .cookie-banner-btn {
-        align-self: flex-end;
+        align-self: flex-start;
     }
 }
 

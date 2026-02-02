@@ -34,7 +34,7 @@
       '<span class="chat-widget-online" aria-label="Online"></span>' +
       '</div>' +
       '<div class="chat-widget-header-info">' +
-      '<span class="chat-widget-header-name">João - Lima Borregana</span>' +
+      '<span class="chat-widget-header-name">João Borregana</span>' +
       '<span class="chat-widget-header-status">Online</span>' +
       '</div>' +
       '<button type="button" class="chat-widget-close" aria-label="Fechar chat"><i class="fas fa-times"></i></button>' +
@@ -84,7 +84,7 @@
         '</div>' +
         '<div class="chat-widget-msg-bubble-wrap">' +
         '<span class="chat-widget-msg-name">João</span>' +
-        '<div class="chat-widget-msg-bubble">Olá! Precisa de apoio no vosso processo internacional? Posso te ajudar.</div>' +
+        '<div class="chat-widget-msg-bubble">Olá! Precisa de apoio no vosso processo internacional? Pode me perguntar aqui</div>' +
         '<span class="chat-widget-msg-time" aria-label="Enviada às ' + timeStr + '">' + timeStr + '</span>' +
         '</div>';
       messagesEl.appendChild(msg);

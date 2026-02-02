@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 financas: 'Finanças & Investimentos',
                 empresa: 'Abrir Empresa',
                 estudante: 'Vistos de Estudante',
+                nacionalidade: 'Nacionalidade europeia',
                 outro: 'Outro'
             };
             const subjectLabel = subjectLabels[subjectValue] || subjectValue;

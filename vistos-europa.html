@@ -16,6 +16,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -37,14 +38,24 @@
                 </button>
                 
                 <ul class="navbar-menu">
-                    <li class="navbar-item">
-                        <a href="vistos-europa.html" class="navbar-link">Vistos</a>
+                    <li class="navbar-item dropdown">
+                        <a href="vistos-europa.html" class="navbar-link">Vistos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vistos-europa.html">Ver todos</a></li>
+                            <li><a href="vistos-europa.html#portugal">Portugal</a></li>
+                            <li><a href="vistos-europa.html#espanha">Espanha</a></li>
+                            <li><a href="vistos-europa.html#eua-canada">EUA e Canadá</a></li>
+                            <li><a href="vistos-europa.html#america-sul">América do Sul</a></li>
+                        </ul>
                     </li>
                     <li class="navbar-item">
                         <a href="estudantes.html" class="navbar-link">Estudantes</a>
                     </li>
                     <li class="navbar-item">
                         <a href="investimentos.html" class="navbar-link">Investimentos</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="nacionalidades.html" class="navbar-link">Nacionalidades</a>
                     </li>
                     <li class="navbar-item">
                         <a href="equipe.html" class="navbar-link">Equipe</a>
@@ -90,9 +101,9 @@
             <h2 class="section-title">Nossas Soluções</h2>
             
             <!-- Portugal -->
-            <div class="solution-block">
+            <div class="solution-block" id="portugal">
                 <div class="solution-header">
-                    <div class="country-flag-large">🇵🇹</div>
+                    <div class="country-flag-large"><span class="flag-icon flag-icon-pt" aria-hidden="true"></span></div>
                     <h3 class="solution-title">Portugal | Residência e Investimento</h3>
                 </div>
                 
@@ -140,9 +151,9 @@
             </div>
             
             <!-- Espanha -->
-            <div class="solution-block">
+            <div class="solution-block" id="espanha">
                 <div class="solution-header">
-                    <div class="country-flag-large">🇪🇸</div>
+                    <div class="country-flag-large"><span class="flag-icon flag-icon-es" aria-hidden="true"></span></div>
                     <h3 class="solution-title">Espanha | Mobilidade e Oportunidade</h3>
                 </div>
                 
@@ -166,9 +177,9 @@
             </div>
             
             <!-- Vistos EUA e Canadá -->
-            <div class="solution-block">
+            <div class="solution-block" id="eua-canada">
                 <div class="solution-header">
-                    <div class="country-flag-large">🇺🇸</div>
+                    <div class="country-flag-large"><span class="flag-icon flag-icon-us" aria-hidden="true"></span></div>
                     <h3 class="solution-title">Vistos para os EUA e Canadá</h3>
                 </div>
                 <p class="page-text" style="margin-bottom: 1.5rem;">Assessoramos em vistos de residência, investimento e estudos para os Estados Unidos e Canadá, com suporte na documentação e requisitos consulares de cada país</p>
@@ -192,9 +203,9 @@
             </div>
             
             <!-- Vistos América do Sul -->
-            <div class="solution-block">
+            <div class="solution-block" id="america-sul">
                 <div class="solution-header">
-                    <div class="country-flag-large">🌎</div>
+                    <div class="country-flag-large"><span class="flag-icon flag-icon-br" aria-hidden="true"></span></div>
                     <h3 class="solution-title">Vistos América do Sul</h3>
                 </div>
                 <p class="page-text" style="margin-bottom: 1.5rem;">Atuamos em processos de residência e regularização no Brasil, Uruguai, Paraguai, Argentina e Chile, em conformidade com as normas de cada país e acordos regionais (Mercosul)</p>
@@ -212,65 +223,40 @@
                 </div>
             </div>
             
-            <!-- Cidadania / Nacionalidade Europeia -->
-            <div class="solution-block highlight">
-                <div class="solution-header">
-                    <div class="visa-icon-large">
-                        <i class="fas fa-passport"></i>
+            <!-- Nacionalidade Europeia e Estudante (lado a lado) -->
+            <div class="solution-blocks-row-wrap">
+            <div class="solution-blocks-row">
+                <!-- Nacionalidade Europeia -->
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <div class="visa-icon-large">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h3 class="solution-title">Nacionalidade Europeia</h3>
                     </div>
-                    <h3 class="solution-title">Nacionalidade Europeia</h3>
+                    <div class="solution-block-content">
+                        <p class="page-text">Realizamos o resgate histórico da sua ascendência, garantindo que o direito ao passaporte seja transmitido com precisão documental. Cidadania portuguesa e espanhola, incluindo via sefardita e descendência.</p>
+                        <a href="nacionalidades.html" class="btn btn-primary" style="margin-top: 1rem;">
+                            <i class="fas fa-arrow-right"></i> Saiba mais sobre nacionalidades
+                        </a>
+                    </div>
                 </div>
-                <p class="page-text">Realizamos o resgate histórico da sua ascendência, garantindo que o direito ao passaporte europeu seja transmitido com precisão documental. Cidadania portuguesa, espanhola e de outros países da UE, incluindo via sefardita e descendência</p>
+                <!-- Estudante -->
+                <div class="solution-block">
+                    <div class="solution-header">
+                        <div class="visa-icon-large">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="solution-title">Estudante</h3>
+                    </div>
+                    <div class="solution-block-content">
+                        <p class="page-text">Vistos e planejamento acadêmico internacional: graduação, mestrado e doutorado na Europa ou nos EUA. Comprovação de subsistência, matrícula e transição para visto de trabalho após o curso</p>
+                        <a href="estudantes.html" class="btn btn-primary" style="margin-top: 1rem;">
+                            <i class="fas fa-arrow-right"></i> Saiba mais sobre vistos de estudante
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Estudante -->
-            <div class="solution-block">
-                <div class="solution-header">
-                    <div class="visa-icon-large">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="solution-title">Estudante</h3>
-                </div>
-                <div class="solution-block-content">
-                    <p class="page-text">Vistos e planejamento acadêmico internacional: graduação, mestrado e doutorado na Europa ou nos EUA. Comprovação de subsistência, matrícula e transição para visto de trabalho após o curso</p>
-                    <a href="estudantes.html" class="btn btn-primary" style="margin-top: 1rem;">
-                        <i class="fas fa-arrow-right"></i> Saiba mais sobre vistos de estudante
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- O Diferencial Multidisciplinar -->
-    <section class="page-section">
-        <div class="container">
-            <div class="page-content">
-                <h2 class="page-section-title">O Diferencial Multidisciplinar</h2>
-                <p class="page-text">Diferente de assessorias comuns, nossa equipe analisa o impacto do seu visto na sua vida financeira. Nossa equipe financeira e de contabilidade avaliam a eficiência tributária entre o seu país de origem e o destino, enquanto nossa equipe jurídica blinda sua transição</p>
-                <p class="page-text">Operamos sempre em colaboração com uma equipe de profissionais licenciados localmente, garantindo que cada documento respeite as exigências dos conselhos de ética e das autoridades de cada país</p>
-                
-                <div class="differential-features">
-                    <div class="differential-feature">
-                        <i class="fas fa-balance-scale"></i>
-                        <h4>Viabilidade Jurídica</h4>
-                        <p>Análise completa da sua situação legal</p>
-                    </div>
-                    <div class="differential-feature">
-                        <i class="fas fa-calculator"></i>
-                        <h4>Eficiência Fiscal</h4>
-                        <p>Otimização tributária entre países</p>
-                    </div>
-                    <div class="differential-feature">
-                        <i class="fas fa-certificate"></i>
-                        <h4>Profissionais Licenciados</h4>
-                        <p>Equipe local em cada jurisdição</p>
-                    </div>
-                    <div class="differential-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Conformidade Total</h4>
-                        <p>Respeito às exigências locais</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -324,6 +310,7 @@
                             <li><a href="vistos-europa.html">Vistos</a></li>
                             <li><a href="estudantes.html">Estudantes</a></li>
                             <li><a href="investimentos.html">Investimentos</a></li>
+                            <li><a href="nacionalidades.html">Nacionalidades</a></li>
                             <li><a href="equipe.html">Equipe</a></li>
                             <li><a href="noticias.html">Notícias</a></li>
                         </ul>
@@ -340,5 +327,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/form.js"></script>
     <script src="assets/js/chat-widget.js"></script>
+    <script src="assets/js/cookie-banner.js"></script>
 </body>
 </html>

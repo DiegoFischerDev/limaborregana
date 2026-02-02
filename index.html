@@ -35,6 +35,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -59,14 +60,24 @@
                 
                 <!-- Menu Desktop -->
                 <ul class="navbar-menu">
-                    <li class="navbar-item">
-                        <a href="vistos-europa.html" class="navbar-link">Vistos</a>
+                    <li class="navbar-item dropdown">
+                        <a href="vistos-europa.html" class="navbar-link">Vistos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="vistos-europa.html">Ver todos</a></li>
+                            <li><a href="vistos-europa.html#portugal">Portugal</a></li>
+                            <li><a href="vistos-europa.html#espanha">Espanha</a></li>
+                            <li><a href="vistos-europa.html#eua-canada">EUA e Canadá</a></li>
+                            <li><a href="vistos-europa.html#america-sul">América do Sul</a></li>
+                        </ul>
                     </li>
                     <li class="navbar-item">
                         <a href="estudantes.html" class="navbar-link">Estudantes</a>
                     </li>
                     <li class="navbar-item">
                         <a href="investimentos.html" class="navbar-link">Investimentos</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="nacionalidades.html" class="navbar-link">Nacionalidades</a>
                     </li>
                     <li class="navbar-item">
                         <a href="equipe.html" class="navbar-link">Equipe</a>
@@ -88,11 +99,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-brand">
-                    <picture><source srcset="assets/img/LogoLB_light_high.webp" type="image/webp"><img src="assets/img/LogoLB_light_high.png" alt="Logo Lima Borregana - Consultoria Internacional" class="hero-logo" width="280" height="80" decoding="async"></picture>
-                    <span class="hero-brand-name">Lima Borregana</span>
-                </div>
-                <h1 class="hero-headline">Segurança jurídica e financeira para o seu próximo capítulo internacional</h1>
+                <h1 class="hero-headline">Segurança para o seu próximo capítulo internacional</h1>
                 <p class="hero-subheadline">Unimos Direito, Finanças e Contabilidade para proteger seus projetos entre a Europa, América do Sul e América do Norte. Consultoria Internacional especializada com suporte de profissionais licenciados em cada país</p>
                 <a href="https://wa.me/351928454397?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20especialista%20da%20Lima%20Borregana%20sobre%20os%20vossos%20servi%C3%A7os." class="btn btn-primary btn-large" target="_blank" rel="noopener">
                     <i class="fas fa-comments"></i>
@@ -102,6 +109,56 @@
         </div>
         <div class="scroll-indicator">
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Seção Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Serviços</h2>
+            <p class="section-subtitle">Consultoria em Direito, Finanças e Contabilidade para o seu projeto internacional</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3 class="service-title">Vistos e Residência</h3>
+                    <p class="service-description">Vistos de trabalho (D1), estudo (D4), investidor, D7 e residência para Portugal, Espanha, EUA e Canadá. Acompanhamento em todas as etapas.</p>
+                    <a href="vistos-europa.html" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Investimentos e Imóveis</h3>
+                    <p class="service-description">Compra de imóveis, crédito à habitação, Golden Visa e proteção patrimonial. Análise de ativos e planeamento fiscal internacional.</p>
+                    <a href="investimentos.html" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Vistos de Estudante</h3>
+                    <p class="service-description">Assessoria para graduação, mestrado e doutorado na Europa e EUA. Comprovação de subsistência e documentação em conformidade.</p>
+                    <a href="estudantes.html" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="service-title">Contabilidade Internacional</h3>
+                    <p class="service-description">Contabilidade e fiscalidade em Portugal, Brasil e América do Sul. Suporte à legalização e integração de pessoas e empresas.</p>
+                    <a href="investimentos.html" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="service-title">Nacionalidades</h3>
+                    <p class="service-description">Assessoria na aquisição e reconhecimento de nacionalidade portuguesa e espanhola. Dupla nacionalidade e descendência.</p>
+                    <a href="nacionalidades.html" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -146,55 +203,34 @@
         </div>
     </section>
 
-    <!-- Seção 3: Por que a nossa Consultoria Digital -->
-    <section class="why-section">
-        <div class="container">
-            <div class="why-content">
-                <h2 class="section-title">Por que a nossa Consultoria Digital?</h2>
-                <div class="why-text">
-                    <p>Mudar de país ou expandir seu patrimônio exige estratégia, não sorte. Somos estrategicamente 100% digitais para eliminar as barreiras físicas e garantir presença constante onde você estiver. Nossa estrutura foi desenhada para quem valoriza o tempo e a precisão</p>
-                    <p>Enquanto você foca no destino, nossa equipe multidisciplinar coordena o percurso: integramos o rigor do Direito, a precisão da Contabilidade e a visão da Economia em uma solução única. Atuamos em colaboração com especialistas licenciados na América do Sul, Europa e Estados Unidos, garantindo conformidade total com legislações locais e uma rota clara para o seu sucesso, a um clique de distância</p>
-                </div>
-                <div class="why-features">
-                    <div class="why-feature">
-                        <i class="fas fa-globe"></i>
-                        <h4>100% Digital</h4>
-                        <p>Sem barreiras físicas, sempre presente</p>
-                    </div>
-                    <div class="why-feature">
-                        <i class="fas fa-users"></i>
-                        <h4>Equipe Multidisciplinar</h4>
-                        <p>Direito, Contabilidade e Economia integrados</p>
-                    </div>
-                    <div class="why-feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Especialistas Licenciados</h4>
-                        <p>Conformidade total com legislações locais</p>
-                    </div>
-                    <div class="why-feature">
-                        <i class="fas fa-clock"></i>
-                        <h4>Agilidade e Precisão</h4>
-                        <p>Valorizamos seu tempo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção 4: Presença Internacional -->
+    <!-- Seção 3: Presença Internacional -->
     <section class="presence-section">
         <div class="container">
             <h2 class="section-title">Presença Internacional</h2>
             <p class="section-subtitle">Atuamos em colaboração com profissionais licenciados em cada um destes países:</p>
-            <div class="presence-countries">
-                <div class="country-pill">🇧🇷 Brasil</div>
-                <div class="country-pill">🇵🇹 Portugal</div>
-                <div class="country-pill">🇪🇸 Espanha</div>
-                <div class="country-pill">🇺🇸 Estados Unidos</div>
-                <div class="country-pill">🇦🇷 Argentina</div>
-                <div class="country-pill">🇺🇾 Uruguai</div>
-                <div class="country-pill">🇨🇱 Chile</div>
-                <div class="country-pill">🇵🇾 Paraguai</div>
+            <div class="presence-countries" aria-hidden="false">
+                <div class="presence-countries-track">
+                    <div class="presence-countries-inner">
+                        <div class="country-pill"><span class="flag-icon flag-icon-br" aria-hidden="true"></span> Brasil</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-pt" aria-hidden="true"></span> Portugal</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-es" aria-hidden="true"></span> Espanha</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-us" aria-hidden="true"></span> Estados Unidos</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-ar" aria-hidden="true"></span> Argentina</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-uy" aria-hidden="true"></span> Uruguai</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-cl" aria-hidden="true"></span> Chile</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-py" aria-hidden="true"></span> Paraguai</div>
+                    </div>
+                    <div class="presence-countries-inner" aria-hidden="true">
+                        <div class="country-pill"><span class="flag-icon flag-icon-br" aria-hidden="true"></span> Brasil</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-pt" aria-hidden="true"></span> Portugal</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-es" aria-hidden="true"></span> Espanha</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-us" aria-hidden="true"></span> Estados Unidos</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-ar" aria-hidden="true"></span> Argentina</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-uy" aria-hidden="true"></span> Uruguai</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-cl" aria-hidden="true"></span> Chile</div>
+                        <div class="country-pill"><span class="flag-icon flag-icon-py" aria-hidden="true"></span> Paraguai</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -250,6 +286,7 @@
                                 <option value="financas">Finanças & Investimentos</option>
                                 <option value="empresa">Abrir Empresa</option>
                                 <option value="estudante">Vistos de Estudante</option>
+                                <option value="nacionalidade">Nacionalidade europeia</option>
                                 <option value="outro">Outro</option>
                             </select>
                         </div>
@@ -290,6 +327,7 @@
                             <li><a href="vistos-europa.html">Vistos</a></li>
                             <li><a href="estudantes.html">Estudantes</a></li>
                             <li><a href="investimentos.html">Investimentos</a></li>
+                            <li><a href="nacionalidades.html">Nacionalidades</a></li>
                             <li><a href="equipe.html">Equipe</a></li>
                             <li><a href="noticias.html">Notícias</a></li>
                         </ul>
@@ -308,5 +346,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/form.js"></script>
     <script src="assets/js/chat-widget.js"></script>
+    <script src="assets/js/cookie-banner.js"></script>
 </body>
 </html>

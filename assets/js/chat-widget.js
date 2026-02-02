@@ -84,7 +84,7 @@
         '</div>' +
         '<div class="chat-widget-msg-bubble-wrap">' +
         '<span class="chat-widget-msg-name">João</span>' +
-        '<div class="chat-widget-msg-bubble">Olá! Posso ajudar com o vosso processo de vistos?</div>' +
+        '<div class="chat-widget-msg-bubble">Olá! Precisa de apoio no vosso processo internacional? Posso te ajudar.</div>' +
         '<span class="chat-widget-msg-time" aria-label="Enviada às ' + timeStr + '">' + timeStr + '</span>' +
         '</div>';
       messagesEl.appendChild(msg);

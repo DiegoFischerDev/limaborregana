@@ -1,4 +1,5 @@
 /* Estilos principais do site */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -149,6 +150,7 @@ body {
 }
 
 .navbar-brand-name {
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -245,6 +247,11 @@ body {
     transform: translateY(0);
 }
 
+.dropdown:hover .navbar-link i.fa-chevron-down,
+.dropdown.active .navbar-link i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu li {
     list-style: none;
 }
@@ -319,19 +326,19 @@ body {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center;
+    text-align: left;
     animation: fadeInUp 1s ease-out;
 }
 
 .hero-text {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .hero-brand {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
 }
@@ -363,8 +370,13 @@ body {
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+@media (min-width: 769px) {
+    .hero-subheadline {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 .btn-large {
@@ -405,9 +417,19 @@ body {
 .section-title {
     font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
     color: var(--text-primary);
+}
+
+.section-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.section-title-link:hover {
+    color: var(--accent-blue-light);
 }
 
 .shortcuts-grid {
@@ -475,6 +497,7 @@ body {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .shortcut-link {
@@ -498,6 +521,109 @@ body {
 
 .shortcut-link:hover i {
     transform: translateX(5px);
+}
+
+/* ============================================
+   SERVIÇOS SECTION (home)
+   ============================================ */
+
+.services-section {
+    padding: 6rem 0;
+    background: var(--bg-secondary);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-blue);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(14, 10, 41, 0.1);
+    border-color: var(--gray-300);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.25rem;
+    background: var(--primary-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(14, 10, 41, 0.15);
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.service-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.service-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.service-link:hover {
+    color: var(--primary-blue-hover);
+    gap: 0.75rem;
+}
+
+.service-link i {
+    font-size: 0.85rem;
+    transition: transform 0.2s ease;
+}
+
+.service-link:hover i {
+    transform: translateX(4px);
 }
 
 /* ============================================
@@ -568,6 +694,7 @@ body {
 .why-feature p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    text-align: left;
 }
 
 /* ============================================
@@ -585,14 +712,14 @@ body {
 }
 
 .section-subtitle {
-    text-align: center;
+    text-align: left;
     font-size: 1.2rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
 .presence-intro {
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
@@ -602,12 +729,43 @@ body {
 }
 
 .presence-countries {
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.presence-countries-track {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: max-content;
+    animation: presence-marquee 45s linear infinite;
+}
+
+.presence-countries-inner {
+    display: flex;
+    flex-wrap: nowrap;
     gap: 0.75rem;
-    max-width: 700px;
-    margin: 0 auto;
+    padding-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+@keyframes presence-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .presence-countries-track {
+        animation: none;
+    }
+    .presence-countries {
+        overflow: visible;
+    }
+    .presence-countries-track {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .presence-countries-inner:last-of-type {
+        display: none;
+    }
 }
 
 .country-pill {
@@ -624,12 +782,13 @@ body {
     transition: all 0.3s ease;
 }
 
-.country-pill:hover {
-    background: var(--gray-100);
-    color: var(--primary-blue);
-    border-color: var(--gray-300);
-    transform: translateY(-2px);
+/* Bandeiras com flag-icon-css (compatível com todos os navegadores) */
+.country-pill .flag-icon {
+    width: 1.5em;
+    height: 1.125em;
+    flex-shrink: 0;
 }
+
 
 /* Legado: mantido para páginas que usam presence-grid / country-item */
 .presence-grid {
@@ -658,7 +817,7 @@ body {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
-    text-align: center;
+    text-align: left;
 }
 
 .countries-list {
@@ -713,7 +872,7 @@ body {
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--text-primary);
-    text-align: center;
+    text-align: left;
     margin: 4rem 0 2rem;
 }
 
@@ -730,6 +889,7 @@ body {
     padding: 2.5rem;
     border: 1px solid rgba(92, 127, 184, 0.1);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .team-card:hover {
@@ -773,6 +933,7 @@ body {
     line-height: 1.75;
     font-size: 0.95rem;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .team-bio:last-child {
@@ -785,6 +946,7 @@ body {
     padding: 2rem;
     border: 1px solid rgba(92, 127, 184, 0.1);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .about-item:hover {
@@ -801,6 +963,7 @@ body {
 .about-item p {
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: left;
 }
 
 /* ============================================
@@ -813,7 +976,7 @@ body {
 }
 
 .news-placeholder {
-    text-align: center;
+    text-align: left;
     padding: 4rem 2rem;
     background: var(--bg-card);
     border-radius: 16px;
@@ -866,6 +1029,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .blog-card-date {
@@ -896,6 +1060,7 @@ body {
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    text-align: left;
 }
 
 .blog-card-link {
@@ -946,7 +1111,7 @@ body {
 
 .blog-grid-empty {
     grid-column: 1 / -1;
-    text-align: center;
+    text-align: left;
     color: var(--text-secondary);
     padding: 3rem 1rem;
     font-size: 1.1rem;
@@ -1113,6 +1278,7 @@ body {
 }
 
 .footer-brand-name {
+    font-family: 'Quicksand', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     color: var(--footer-text);
@@ -1152,7 +1318,7 @@ body {
 .footer-contact-item i {
     color: var(--footer-text-muted);
     width: 1rem;
-    text-align: center;
+    text-align: left;
     font-size: 0.85rem;
 }
 
@@ -1173,7 +1339,7 @@ body {
 
 .footer-column ul {
     list-style: none;
-    text-align: right;
+    text-align: left;
 }
 
 .footer-column ul li {
@@ -1239,7 +1405,7 @@ body {
     }
     .footer-bottom {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
         padding: 0.875rem 0;
     }
 }
@@ -1338,7 +1504,7 @@ body {
         color: #fff;
         border-bottom: none;
         margin-top: 0.5rem;
-        text-align: center;
+        text-align: left;
     }
     
     .navbar-menu .navbar-link.btn-primary:hover {
@@ -1514,7 +1680,7 @@ body {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 2rem;
-    text-align: center;
+    text-align: left;
 }
 
 .page-hero-label {
@@ -1549,6 +1715,11 @@ body {
     margin-right: auto;
 }
 
+.page-hero-nacionalidades .page-hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 /* Page Sections */
 .page-section {
     padding: 5rem 0;
@@ -1568,7 +1739,7 @@ body {
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--text-primary);
-    text-align: center;
+    text-align: left;
 }
 
 .page-text {
@@ -1583,7 +1754,7 @@ body {
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 2rem;
-    text-align: center;
+    text-align: left;
 }
 
 /* Artigo do blog (título, imagem e corpo abaixo da hero) */
@@ -1634,10 +1805,44 @@ body {
     margin-bottom: 4rem;
 }
 
+.solution-blocks-row-wrap {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--gray-200);
+}
+
+.solution-blocks-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: 0;
+}
+
+.solution-blocks-row .solution-block {
+    margin-bottom: 0;
+}
+
+.solution-blocks-row .solution-block-content {
+    max-width: none;
+}
+
+@media (max-width: 768px) {
+    .solution-blocks-row-wrap {
+        padding: 1.5rem;
+    }
+    .solution-blocks-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
 .solution-block-content {
     max-width: 720px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
 }
 
 .solution-block.highlight {
@@ -1645,7 +1850,7 @@ body {
     padding: 3rem;
     border-radius: 16px;
     border: 1px solid rgba(92, 127, 184, 0.2);
-    text-align: center;
+    text-align: left;
 }
 
 .solution-header {
@@ -1658,17 +1863,30 @@ body {
 /* Quando tem visa-icon-large, ícone e título um acima do outro e alinhados ao centro */
 .solution-header:has(.visa-icon-large) {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     align-items: center;
 }
 
 .solution-block.highlight .solution-header {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
 }
 
 .country-flag-large {
     font-size: 3rem;
+}
+
+.country-flag-large .flag-icon {
+    display: block;
+    width: 4rem;
+    height: 3rem;
+}
+
+.country-flag-large.country-flag-icon-globe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue-light);
 }
 
 .visa-icon-large {
@@ -1736,6 +1954,7 @@ body {
 .visa-description {
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: left;
 }
 
 /* Differential Features */
@@ -1769,6 +1988,7 @@ body {
 .differential-feature p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    text-align: left;
 }
 
 /* Support Grid */
@@ -1785,6 +2005,7 @@ body {
     padding: 2.5rem;
     border: 1px solid rgba(92, 127, 184, 0.1);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .support-card:hover {
@@ -1816,6 +2037,7 @@ body {
 .support-description {
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: left;
 }
 
 /* Process Steps */
@@ -1869,7 +2091,7 @@ body {
 .quote-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
 }
 
 .quote-text {
@@ -1895,7 +2117,7 @@ body {
 }
 
 .investment-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
 }
 
@@ -2013,13 +2235,14 @@ body {
 .excellence-feature p {
     color: var(--text-muted);
     font-size: 0.95rem;
+    text-align: left;
 }
 
 /* CTA Section Page */
 .cta-section-page {
     padding: 5rem 0;
     background: var(--gradient-hero);
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
 }
@@ -2085,7 +2308,7 @@ body {
     
     .process-step {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
     
     .step-number {
@@ -2099,7 +2322,7 @@ body {
     
     .solution-header {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -2352,6 +2575,85 @@ body {
     .chat-widget-panel {
         width: calc(100vw - 2rem);
         height: 70vh;
+    }
+}
+
+/* ============================================
+   BANNER COOKIES / PRIVACIDADE (RGPD)
+   ============================================ */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    background: #fff;
+    color: var(--text-primary);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid var(--gray-200);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cookie-banner--hidden {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+.cookie-banner-inner {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cookie-banner-text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+    min-width: 200px;
+}
+
+.cookie-banner-text a {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+.cookie-banner-text a:hover {
+    color: var(--primary-blue-hover);
+}
+
+.cookie-banner-btn {
+    flex-shrink: 0;
+    padding: 0.6rem 1.25rem;
+    background: var(--primary-blue);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cookie-banner-btn:hover {
+    background: var(--primary-blue-hover);
+}
+
+@media (max-width: 640px) {
+    .cookie-banner-inner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+    }
+    .cookie-banner-btn {
+        align-self: flex-end;
     }
 }
 

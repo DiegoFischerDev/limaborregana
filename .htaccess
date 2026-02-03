@@ -1,3 +1,9 @@
+RewriteEngine On
+
+# Redirecionar de www para sem www (HTTPS)
+RewriteCond %{HTTP_HOST} ^www\.limaborregana\.com$ [NC]
+RewriteRule ^(.*)$ https://limaborregana.com/$1 [L,R=301]
+
 # Configurações básicas para Hostinger
 
 # Habilitar compressão GZIP

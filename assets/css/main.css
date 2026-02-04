@@ -736,7 +736,17 @@ body {
 .presence-countries-track {
     display: flex;
     width: max-content;
-    animation: presence-marquee 45s linear infinite;
+    animation-duration: 45s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.presence-countries-track--row1 {
+    animation-name: presence-marquee;
+}
+
+.presence-countries-track--row2 {
+    animation-name: presence-marquee-reverse;
 }
 
 .presence-countries-inner {
@@ -750,6 +760,43 @@ body {
 @keyframes presence-marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@keyframes presence-marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Apenas uma linha no desktop; duas linhas no mobile */
+@media (min-width: 769px) {
+    .presence-countries-track--row2 {
+        display: none;
+    }
+}
+
+/* Mobile: sem animação; todas as bandeiras visíveis, quebrando linha */
+@media (max-width: 768px) {
+    .presence-countries {
+        overflow: visible;
+    }
+    .presence-countries-track {
+        animation: none;
+        display: block;
+        width: 100%;
+    }
+    /* esconde a segunda track e as cópias usadas só para o efeito de marquee */
+    .presence-countries-track--row2 {
+        display: none;
+    }
+    .presence-countries-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding-right: 0;
+    }
+    .presence-countries-inner[aria-hidden="true"] {
+        display: none;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
